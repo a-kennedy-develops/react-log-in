@@ -2,7 +2,10 @@ import classes from "./TextInput.module.scss";
 
 function TextInput(props) {
   const inputChangeHandler = (event) => {
-    props.returnInputHandler(event.target.value);
+    props.onChangeHandler(event.target.value);
+  };
+  const inputBlurHandler = (event) => {
+    props.onBlurHandler();
   };
 
   return (
@@ -17,9 +20,11 @@ function TextInput(props) {
     >
       <label>{props.label}</label>
       <input
+        id={props.id}
+        value={props.value}
         type={props.type}
         onChange={inputChangeHandler}
-        value={props.value}
+        onBlur={inputBlurHandler}
       ></input>
     </div>
   );
