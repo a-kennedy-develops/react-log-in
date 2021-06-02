@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 
-import Card from "../UI/Card/Card";
+import Card from "../UI/Patterns/Card/Card";
 import classes from "./Login.module.scss";
 import uiHelpers from "../UI/Helpers/Helpers.module.scss";
-import Button from "../UI/Button/Button";
-import TextInput from "../UI/TextInput/TextInput";
+import Button from "../UI/Patterns/Button/Button";
+import TextInput from "../UI/Patterns/TextInput/TextInput";
 
 const Login = (props) => {
   const [enteredEmail, setEnteredEmail] = useState("");
