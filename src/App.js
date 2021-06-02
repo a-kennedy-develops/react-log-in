@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
 import Login from "./components/Login/Login";
+import Home from './components/Home/Home';
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -18,6 +19,7 @@ function App() {
   return (
     <React.Fragment>
       <main>{!isLoggedIn && <Login onLogin={loginHandler} />}</main>
+      {isLoggedIn && <Home onLogout={logoutHandler} />}
     </React.Fragment>
   );
 }
