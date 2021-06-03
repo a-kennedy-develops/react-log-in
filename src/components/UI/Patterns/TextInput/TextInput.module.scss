@@ -35,10 +35,10 @@
     }
   }
 
-  .invalid {
+  &.invalid {
     input {
-      border-color: red;
-      background: #fbdada;
+      border-color: red !important;
+      background: #fbdada !important;
     }
   }
 }

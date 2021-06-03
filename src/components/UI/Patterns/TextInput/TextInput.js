@@ -4,7 +4,7 @@ function TextInput(props) {
   const inputChangeHandler = (event) => {
     props.onChangeHandler(event.target.value);
   };
-  const inputBlurHandler = (event) => {
+  const inputBlurHandler = () => {
     props.onBlurHandler();
   };
 
@@ -13,9 +13,7 @@ function TextInput(props) {
       className={
         props.className === undefined
           ? `${classes['input-field']}`
-          : `${classes['input-field']} ${props.className}`
-          ? "input-field"
-          : "input-field " + props.className
+          : `${classes['input-field']} ${classes[props.className]}`
       }
     >
       <label>{props.label}</label>
