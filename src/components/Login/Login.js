@@ -62,7 +62,7 @@ const Login = (props) => {
           onChangeHandler={passwordChangeHandler}
           onBlurHandler={validatePasswordHandler}
         />
-        <div className={uiHelpers.actions}>
+        <div className={uiHelpers['align-center']}>
           <Button type="submit" disabled={!formIsValid}>
             Login
           </Button>
