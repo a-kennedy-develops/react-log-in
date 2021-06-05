@@ -15,9 +15,18 @@ const Login = (props) => {
   const [formIsValid, setFormIsValid] = useState(false);
 
   useEffect(() => {
-    setFormIsValid(
-      enteredEmail.includes("@") && enteredPassword.trim().length > 6
-    );
+    const validityTimer = setTimeout(() => {
+      // console.log("Checking validity")
+      setFormIsValid(
+        enteredEmail.includes("@") && enteredPassword.trim().length > 6
+      );
+    }, 500);
+
+    // Clean up function
+    return () => {
+      // console.log('CLEANUP');
+      clearTimeout(validityTimer);
+    };
   }, [enteredEmail, enteredPassword]);
 
   const emailChangeHandler = (value) => {
@@ -48,7 +57,7 @@ const Login = (props) => {
           label="Email"
           type="email"
           id="email"
-          className={emailIsValid === false && 'invalid'}
+          className={emailIsValid === false ? 'invalid' : undefined}
           value={enteredEmail}
           onChangeHandler={emailChangeHandler}
           onBlurHandler={validateEmailHandler}
@@ -57,7 +66,7 @@ const Login = (props) => {
           label="Password"
           type="password"
           id="password"
-          className={passwordIsValid === false && 'invalid'}
+          className={passwordIsValid === false ? 'invalid' : undefined}
           value={enteredPassword}
           onChangeHandler={passwordChangeHandler}
           onBlurHandler={validatePasswordHandler}
