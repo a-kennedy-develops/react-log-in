@@ -2,10 +2,10 @@ import classes from "./TextInput.module.scss";
 
 function TextInput(props) {
   const inputChangeHandler = (event) => {
-    props.onChangeHandler(event.target.value);
+    props.onChangeHandler(event);
   };
-  const inputBlurHandler = () => {
-    props.onBlurHandler();
+  const inputBlurHandler = (event) => {
+    props.onBlurHandler(event);
   };
 
   return (

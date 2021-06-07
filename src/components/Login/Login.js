@@ -29,12 +29,20 @@ const Login = (props) => {
     };
   }, [enteredEmail, enteredPassword]);
 
-  const emailChangeHandler = (value) => {
-    setEnteredEmail(value);
+  const emailChangeHandler = (event) => {
+    setEnteredEmail(event.target.value);
+
+    // setFormIsValid(
+    //   event.target.value.includes('@') && enteredPassword.trim().length > 6
+    // );
   };
 
-  const passwordChangeHandler = (value) => {
-    setEnteredPassword(value);
+  const passwordChangeHandler = (event) => {
+    setEnteredPassword(event.target.value);
+
+    // setFormIsValid(
+    //   enteredEmail.includes('@') && enteredPassword.trim().length > 6
+    // );
   };
 
   const validateEmailHandler = () => {
