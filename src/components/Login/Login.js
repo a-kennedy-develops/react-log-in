@@ -44,10 +44,14 @@ const Login = (props) => {
     isValid: null,
   });
 
+  // Object destructuring
+  const { isValid: emailIsValid } = emailState;
+  const { isValid: passwordIsValid } = passwordState;
+
   useEffect(() => {
     const validityTimer = setTimeout(() => {
       setFormIsValid(
-        emailState.isValid && passwordState.isValid
+        emailIsValid && passwordIsValid
       );
     }, 500);
 
@@ -55,7 +59,7 @@ const Login = (props) => {
     return () => {
       clearTimeout(validityTimer);
     };
-  }, [emailState, passwordState]);
+  }, [emailIsValid, passwordIsValid]);
 
   const emailChangeHandler = (event) => {
     // setEnteredEmail(event.target.value);
