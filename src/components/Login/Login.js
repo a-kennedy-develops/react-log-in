@@ -36,10 +36,6 @@ const passwordReducer = (state, action) => {
 };
 
 const Login = (props) => {
-  // const [enteredEmail, setEnteredEmail] = useState("");
-  // const [emailIsValid, setEmailIsValid] = useState();
-  // const [enteredPassword, setEnteredPassword] = useState("");
-  // const [passwordIsValid, setPasswordIsValid] = useState();
   const [formIsValid, setFormIsValid] = useState(false);
 
   const [emailState, dispatchEmail] = useReducer(emailReducer, {
@@ -54,6 +50,7 @@ const Login = (props) => {
 
   const authCtx = useContext(AuthContext);
 
+  // Refs for Input components
   const emailInputRef = useRef();
   const passwordInputRef = useRef();
 
@@ -66,53 +63,24 @@ const Login = (props) => {
       setFormIsValid(emailIsValid && passwordIsValid);
     }, 500);
 
-    // Clean up function
     return () => {
       clearTimeout(validityTimer);
     };
   }, [emailIsValid, passwordIsValid]);
 
   const emailChangeHandler = (event) => {
-    // setEnteredEmail(event.target.value);
-
-    // setFormIsValid(
-    //   event.target.value.includes('@') && enteredPassword.trim().length > 6
-    // );
-
-    // Using useReducer...
     dispatchEmail({ type: "USER_INPUT", val: event.target.value });
-
-    // setFormIsValid(
-    //   emailState.isValid && passwordState.isValid
-    // );
   };
 
   const passwordChangeHandler = (event) => {
-    // setEnteredPassword(event.target.value);
-
-    // setFormIsValid(
-    //   enteredEmail.includes('@') && enteredPassword.trim().length > 6
-    // );
-
-    // Using useReducer...
     dispatchPassword({ type: "USER_INPUT", val: event.target.value });
-
-    // setFormIsValid(
-    //   emailState.isValid && passwordState.isValid
-    // );
   };
 
   const validateEmailHandler = (event) => {
-    // setEmailIsValid(enteredEmail.includes("@"));
-
-    // Using useReducer...
     dispatchEmail({ type: "INPUT_BLUR", val: event.target.value });
   };
 
   const validatePasswordHandler = (event) => {
-    // setPasswordIsValid(enteredPassword.trim().length > 6);
-
-    // Using useReducer...
     dispatchPassword({ type: "INPUT_BLUR", val: event.target.value });
   };
 
