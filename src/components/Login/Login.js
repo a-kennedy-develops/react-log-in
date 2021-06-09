@@ -1,8 +1,10 @@
-import React, { useState, useEffect, useReducer } from "react";
+import React, { useState, useEffect, useReducer, useContext } from "react";
 
 import Card from "../UI/Patterns/Card/Card";
 import Button from "../UI/Patterns/Button/Button";
 import TextInput from "../UI/Patterns/TextInput/TextInput";
+
+import AuthContext from "../../store/auth-context";
 
 import classes from "./Login.module.scss";
 import uiHelpers from "../UI/Helpers/Helpers.module.scss";
@@ -43,6 +45,8 @@ const Login = (props) => {
     value: '',
     isValid: null,
   });
+
+  const authCtx = useContext(AuthContext);
 
   // Object destructuring
   const { isValid: emailIsValid } = emailState;
@@ -110,7 +114,7 @@ const Login = (props) => {
     // props.onLogin(enteredEmail, enteredPassword);
 
     // Using useReducer...
-    props.onLogin(emailState.value, passwordState.value);
+    authCtx.onLogin(emailState.value, passwordState.value);
   };
 
   return (
