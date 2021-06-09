@@ -2,7 +2,7 @@ import React, { useState, useEffect, useReducer, useContext } from "react";
 
 import Card from "../UI/Patterns/Card/Card";
 import Button from "../UI/Patterns/Button/Button";
-import TextInput from "../UI/Patterns/TextInput/TextInput";
+import Input from "../UI/Patterns/Input/Input";
 
 import AuthContext from "../../store/auth-context";
 
@@ -120,31 +120,21 @@ const Login = (props) => {
   return (
     <Card className={classes.login}>
       <form onSubmit={submitHandler}>
-        <TextInput
+        <Input
           label="Email"
           type="email"
           id="email"
-          // className={emailIsValid === false ? "invalid" : undefined}
-          // value={enteredEmail}
-
-          // Using useReducer...
           value={emailState.value}
           className={emailState.isValid === false ? "invalid" : undefined}
-
           onChangeHandler={emailChangeHandler}
           onBlurHandler={validateEmailHandler}
         />
-        <TextInput
+        <Input
           label="Password"
           type="password"
           id="password"
-          // className={passwordIsValid === false ? "invalid" : undefined}
-          // value={enteredPassword}
-
-          // Using useReducer...
           value={passwordState.value}
           className={passwordState.isValid === false ? "invalid" : undefined}
-
           onChangeHandler={passwordChangeHandler}
           onBlurHandler={validatePasswordHandler}
         />

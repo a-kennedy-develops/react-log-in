@@ -1,4 +1,4 @@
-import classes from "./TextInput.module.scss";
+import classes from "./Input.module.scss";
 
 function TextInput(props) {
   const inputChangeHandler = (event) => {
